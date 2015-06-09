@@ -20,7 +20,7 @@ desplazar n l | (n >= 0) && (n <= 25) && (esMin l) && (letANat l + n <= 25) = na
 codificar :: Integer -> String -> String
 codificar n [] = []
 codificar n x | n <= 25 = (desplazar n (head x)) : (codificar n (tail x))
-codificar n x | otherwise = (desplazar (n-25) (head x)) : (codificar (n-25) (tail x))
+codificar n x | otherwise = (desplazar (n- (div n 25)*25) (head x)) : (codificar (n- (div n 25)*25) (tail x))
 decodificar :: Integer -> String -> String
 decodificar n [] = []
 decodificar n x | n <= 25 = (codificar (26-n) x)
