@@ -33,6 +33,14 @@ rotar :: (Eq a) => Integer -> [a] -> [a]
 rotar x y | x == 0 || y == [] = []
 	  | (contarelementos y < x) = rotar (x - contarelementos y) y
 	  | otherwise = (tomarLast ((contarelementos y) - x) y) ++ (tomarN x y)
+
+tomarLast :: (Eq a) => Integer -> [a] -> [a]
+tomarLast n x | (n <= 0) || (x == []) = []
+	      | otherwise = tomarLast (n-1) (init x) ++ [last x]
+rotar :: (Eq a) => Integer -> [a] -> [a]
+rotar x y | x == 0 || y == [] = []
+	  | (contarelementos y < x) = rotar (x - contarelementos y) y
+	  | otherwise = (tomarLast ((contarelementos y) - x) y) ++ (tomarN x y)
 contar :: Char -> String -> Integer
 contar x [] = 0
 contar x y | (head y) == x = 1 + contar x (tail y)
