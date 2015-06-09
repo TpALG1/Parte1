@@ -25,3 +25,7 @@ decodificar :: Integer -> String -> String
 decodificar n [] = []
 decodificar n x | n <= 25 = (codificar (26-n) x)
 decodificar n x | otherwise = (codificar (26-(n- (div n 25)*25)) x)
+contar :: Char -> String -> Integer
+contar x [] = 0
+contar x y | (head y) == x = 1 + contar x (tail y)
+	   | otherwise = contar x (tail y)
