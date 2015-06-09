@@ -29,3 +29,21 @@ contar :: Char -> String -> Integer
 contar x [] = 0
 contar x y | (head y) == x = 1 + contar x (tail y)
 	   | otherwise = contar x (tail y)
+
+
+- Volvi a definir otra vez las funciones para que vayan a Float -
+cantMinusc' :: String -> Float
+cantMinusc' [] = 0
+cantMinusc' x | (esMin (head x)) = 1 + cantMinusc' (tail x)
+	      | otherwise = cantMinusc' (tail x)
+contar' :: Char -> String -> Float
+contar' x [] = 0
+contar' x y | (head y) == x = 1 + contar' x (tail y)
+	    | otherwise = contar' x (tail y)
+
+contarporcentajes :: String -> String -> [Float]
+contarporcentajes x y | x == [] || y == [] = []
+		      | otherwise = [(100 * (contar' (head x) y))/cantMinusc' y] ++ contarporcentajes (tail x) y
+frec :: String -> [Float]
+frec [] = take 26 (repeat 0)
+frec x = contarporcentajes ['a'..'z'] x
