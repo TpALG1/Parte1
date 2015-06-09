@@ -13,3 +13,7 @@ tomarN n x | (n <= 0) || (x == []) = []
 natALet :: Integer -> Char
 natALet x | (x >= 0) && (x <= 25) = last (tomarN (x+1) ['a'..'z'])
 	  | otherwise = undefined
+desplazar :: Integer -> Char -> Char
+desplazar n l | (n >= 0) && (n <= 25) && (esMin l) && (letANat l + n <= 25) = natALet (letANat l + n)
+	      | (n >= 0) && (n <= 25) && (esMin l) && (letANat l + n > 25) = natALet (letANat l + n - 26)
+	      | otherwise = l
