@@ -61,3 +61,8 @@ chi2 :: [Float] -> [Float] -> Float
 chi2 x y | (y == []) || (length x /= length y)= undefined
 	 | (length x == 1) && (length y == 1) = (head x - head y)^2/head y
 	 | otherwise = (((head x - head y)^2)/(head y)) + chi2 (tail x) (tail y)
+
+chi2 :: [Float] -> [Float] -> Float
+chi2 x y | (length x /= length y)= undefined
+         | (x == []) && (y == []) = 0
+         | otherwise = (((head x - head y)^2)/(head y)) + chi2 (tail x) (tail y)
