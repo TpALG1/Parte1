@@ -17,3 +17,11 @@ desplazar :: Integer -> Char -> Char
 desplazar n l | (n >= 0) && (n <= 25) && (esMin l) && (letANat l + n <= 25) = natALet (letANat l + n)
 	      | (n >= 0) && (n <= 25) && (esMin l) && (letANat l + n > 25) = natALet (letANat l + n - 26)
 	      | otherwise = l
+codificar :: Integer -> String -> String
+codificar n [] = []
+codificar n x | n <= 25 = (desplazar n (head x)) : (codificar n (tail x))
+codificar n x | otherwise = (desplazar (n-25) (head x)) : (codificar (n-25) (tail x))
+decodificar :: Integer -> String -> String
+decodificar n [] = []
+decodificar n x | n <= 25 = (codificar (26-n) x)
+decodificar n x | otherwise = (codificar (51-n) x)
