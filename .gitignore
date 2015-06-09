@@ -71,3 +71,8 @@ chi2 x y | (length x /= length y)= undefined
 chi2 :: [Float] -> [Float] -> Float
 chi2 [] [] = 0
 chi2 (x:xs) (y:ys) = ((x-y)^2 / y) + chi2 xs ys
+
+____________
+descifrar x = F
+where F = frec x
+
