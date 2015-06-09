@@ -73,8 +73,8 @@ chi2 [] [] = 0
 chi2 (x:xs) (y:ys) = ((x-y)^2 / y) + chi2 xs ys
 
 ____________
-descifrar x = F
-where F = frec x
+descifrar x = f
+where f = frec x
 
 aux :: String -> [Integer] -> [Float]
 aux x [] = []
