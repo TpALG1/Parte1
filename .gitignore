@@ -7,3 +7,9 @@ contarelementos x = 1 + contarelementos (tail x)
 letANat :: Char -> Integer
 letANat x | (esMin x) = (contarelementos ['a'..x]) - 1
 	  | otherwise = undefined
+tomarN :: (Eq a) => Integer -> [a] -> [a]
+tomarN n x | (n <= 0) || (x == []) = []
+	   | otherwise = [head x] ++ tomarN (n-1) (tail x)
+natALet :: Integer -> Char
+natALet x | (x >= 0) && (x <= 25) = last (tomarN (x+1) ['a'..'z'])
+	  | otherwise = undefined
