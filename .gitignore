@@ -56,3 +56,8 @@ rotar :: (Eq a) => Integer -> [a] -> [a]
 rotar x y | x == 0 || y == [] = []
 	  | (contarelementos y < x) = rotar (x - contarelementos y) y
 	  | otherwise = (tomarLast ((contarelementos y) - x) y) ++ (tomarN x y)
+
+chi2 :: [Float] -> [Float] -> Float
+chi2 x y | (y == []) || (length x /= length y)= undefined
+	 | (length x == 1) && (length y == 1) = (head x - head y)^2/head y
+	 | otherwise = (((head x - head y)^2)/(head y)) + chi2 (tail x) (tail y)
