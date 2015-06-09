@@ -24,4 +24,4 @@ codificar n x | otherwise = (desplazar (n- (div n 25)*25) (head x)) : (codificar
 decodificar :: Integer -> String -> String
 decodificar n [] = []
 decodificar n x | n <= 25 = (codificar (26-n) x)
-decodificar n x | otherwise = (codificar (51-n) x)
+decodificar n x | otherwise = (codificar (26-(n- (div n 25)*25)) x)
