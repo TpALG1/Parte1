@@ -73,11 +73,10 @@ chi2 [] [] = 0
 chi2 (x:xs) (y:ys) = ((x-y)^2 / y) + chi2 xs ys
 
 ____________
-descifrar x = f
- where f = frec x
 
 aux :: String -> [Float]
 aux x [] = []
 aux x  = (chi2 (rotar (head z) f ) y) : aux x (tail z)
 	where y = [12.52, 1.42, 4.67, 5.85, 13.67, 0.67, 1.01, 0.70, 6.24, 0.44, 0.01, 4.96, 3.15, 6.70, 8.67, 2.51, 0.88, 6.86, 7.97, 4.62, 3.92, 0.90, 0.02, 0.22, 0.90, 0.52]
               z= [1..25]
+              f = frec x
