@@ -1,4 +1,9 @@
 import Data.Char
 esMin :: Char -> Bool
 esMin x = isLower x
-
+contarelementos :: [a] -> Integer
+contarelementos [] = 0
+contarelementos x = 1 + contarelementos (tail x)
+letANat :: Char -> Integer
+letANat x | (esMin x) = (contarelementos ['a'..x]) - 1
+	  | otherwise = undefined
